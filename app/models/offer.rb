@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-  validates :payout, numericality true
+  validates :payout, numericality: true
   validate :payout_grater_zero
   belongs_to :user
 
