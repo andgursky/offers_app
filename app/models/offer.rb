@@ -6,7 +6,6 @@ class Offer < ApplicationRecord
   private
 
   def payout_grater_zero
-    payout && payout.positive? ? true : false
-    errors.add(:base, :emutable)
+    errors.add(:base, :emutable) unless payout && payout.positive?
   end
 end
