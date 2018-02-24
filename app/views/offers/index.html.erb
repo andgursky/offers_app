@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="Name">Name</th>
+      <th scope="Advertiser">Advertiser</th>
+      <th scope="Payout">Payout</th>
+  </thead>
+  </tbody>
+    <% unless @offers.empty? %>
+      <% @offers.each do |offer| %>
+        <tr>
+          <td><%= offer["id"] %></td>
+          <td><%= offer["name"] %></td>
+          <td><%= offer["advertiser"] %></td>
+          <td><%= offer["payout"] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

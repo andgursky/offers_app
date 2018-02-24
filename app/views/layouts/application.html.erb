@@ -8,7 +8,42 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="padding-top:70px;">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/">Offers</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <% if current_user %>
+              <%= link_to "Show my offers", show_offers_path(current_user), class:"navbar-brand" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if current_user %>
+              <%= link_to "Create", create_offers_path(current_user), method: :post, class:"navbar-brand" %>
+            <% end %>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <div id="container">
+            <div id="user_nav">
+              <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to "Edit profile", edit_user_registration_path %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+              <% else %>
+                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Login", new_user_session_path %>
+              <% end %>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
