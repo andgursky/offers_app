@@ -10,7 +10,7 @@
 
   <body style="padding-top:70px;">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Offers</a>
+      <a class="navbar-brand" href="/">Offers</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,12 +19,12 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <% if current_user %>
-              <%= link_to "Show my offers", controller: "offers", action: :show, id: current_user.id %>
+              <%= link_to "Show my offers", show_offers_path(current_user), class:"navbar-brand" %>
             <% end %>
           </li>
           <li class="nav-item">
             <% if current_user %>
-              <%= link_to "Create offer", controller: "offers", action: :create, id: current_user.id %>
+              <%= link_to "Create", create_offers_path(current_user), method: :post, class:"navbar-brand" %>
             <% end %>
           </li>
         </ul>

@@ -1,2 +1,26 @@
-<h1>Offers#create</h1>
-<p>Find me in app/views/offers/create.html.erb</p>
+  <%= form_tag create_offers_path do %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="name">Name:</label>
+    <div class="col-sm-10">
+      <%= text_field_tag "offers[name]", "", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="advertiser">Advertiser:</label>
+    <div class="col-sm-10">
+      <%= text_field_tag "offers[advertiser]", "", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="payout">Payout:</label>
+    <div class="col-sm-10">
+      <%= text_field_tag "offers[payout]", "", class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= submit_tag "Submit", class:"btn btn-default" %>
+    </div>
+  </div>
+<% end %>

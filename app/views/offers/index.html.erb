@@ -10,10 +10,10 @@
     <% unless @offers.empty? %>
       <% @offers.each do |offer| %>
         <tr>
-          <td><%= best_in_place offer, :id %></td>
-          <td><%= best_in_place offer, :name %></td>
-          <td><%= best_in_place offer, :advertiser %></td>
-          <td><%= best_in_place offer, :payout %></td>
+          <td><%= offer["id"] %></td>
+          <td><%= offer["name"] %></td>
+          <td><%= offer["advertiser"] %></td>
+          <td><%= offer["payout"] %></td>
         </tr>
       <% end %>
     <% end %>
