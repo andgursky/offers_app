@@ -6,16 +6,16 @@ class OffersController < ApplicationController
   end
 
   def show
-    @my_offers = User.find(params["id"]).offers
+    @my_offers = User.find(params['id']).offers
     render :show
   end
 
   def create
-    if params["offers"]
-      user = User.find params["id"]
-      offer = user.offers.create(name: params["offers"]["name"],
-                                 advertiser: params["offers"]["advertiser"],
-                                 payout: params["offers"]["payout"])
+    if params['offers']
+      user = User.find params['id']
+      user.offers.create(name: params['offers']['name'],
+                         advertiser: params['offers']['advertiser'],
+                         payout: params['offers']['payout'])
       redirect_to action: :show
     else
       render :create
@@ -23,7 +23,7 @@ class OffersController < ApplicationController
   end
 
   def update
-    @offer = Offer.find(params["id"])
+    @offer = Offer.find(params['id'])
     @offer.update_attributes(offer_params)
     respond_with @offer
   end
