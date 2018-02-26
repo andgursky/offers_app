@@ -82,5 +82,4 @@ test:
 production:
   <<: *default
   database: offers_app_production
-  username: offers_app
   password: <%= ENV['OFFERS_APP_DATABASE_PASSWORD'] %>
